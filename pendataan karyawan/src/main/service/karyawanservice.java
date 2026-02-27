@@ -20,4 +20,10 @@ public class KaryawanService {
     public Karyawan saveKaryawan(Karyawan karyawan) {
         return karyawanRepository.save(karyawan);
     }
+
+}
+
+public Karyawan getKaryawanById(Long id) {
+    return karyawanRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Karyawan dengan ID " + id + " tidak ditemukan"));
 }
